@@ -1,0 +1,12 @@
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor
+.vscode/
+
+# Local tooling (if you ever add any)
+node_modules/
+.env
+.env.local
