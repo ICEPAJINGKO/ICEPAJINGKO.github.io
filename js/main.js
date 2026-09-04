@@ -103,6 +103,7 @@
   if (!prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
     const cursorDot = document.getElementById('cursorDot');
     cursorDot.classList.add('active');
+    document.documentElement.classList.add('has-custom-cursor');
     window.addEventListener('mousemove', (e) => {
       cursorDot.style.left = e.clientX + 'px';
       cursorDot.style.top = e.clientY + 'px';
