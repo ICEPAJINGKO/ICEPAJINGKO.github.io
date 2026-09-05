@@ -4,6 +4,9 @@
   /* Preloader */
   const preloader = document.getElementById('preloader');
   const preloaderCount = document.getElementById('preloaderCount');
+  const preloaderBars = document.getElementById('preloaderBars');
+  const preloaderTrackFill = document.getElementById('preloaderTrackFill');
+  const preloaderTrackDot = document.getElementById('preloaderTrackDot');
 
   const finishPreload = () => {
     preloader.classList.add('hidden');
@@ -14,16 +17,37 @@
   if (prefersReducedMotion) {
     finishPreload();
   } else {
+    const BAR_COUNT = 24;
+    const TONES = ['orange', 'white', 'black'];
+    const bars = [];
+    for (let i = 0; i < BAR_COUNT; i++) {
+      const tone = TONES[Math.floor(Math.random() * TONES.length)];
+      const bar = document.createElement('div');
+      bar.className = `preloader-bar tone-${tone}`;
+      bar.style.setProperty('--h', `${20 + Math.random() * 80}%`);
+      bar.style.setProperty('--d', `${Math.random() * 1.8}s`);
+      preloaderBars.appendChild(bar);
+      bars.push(bar);
+    }
+
+    const updateProgressUI = (count) => {
+      preloaderCount.textContent = count;
+      preloaderTrackFill.style.width = count + '%';
+      preloaderTrackDot.style.left = count + '%';
+      const filledCount = Math.round((count / 100) * BAR_COUNT);
+      bars.forEach((bar, i) => bar.classList.toggle('filled', i < filledCount));
+    };
+
     let count = 0;
     const tick = () => {
       count += Math.ceil(Math.random() * 18);
       if (count >= 100) {
         count = 100;
-        preloaderCount.textContent = count;
+        updateProgressUI(count);
         setTimeout(finishPreload, 250);
         return;
       }
-      preloaderCount.textContent = count;
+      updateProgressUI(count);
       setTimeout(tick, 90);
     };
     tick();

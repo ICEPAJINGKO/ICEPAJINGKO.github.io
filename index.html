@@ -24,7 +24,17 @@
 
   <!-- Preloader -->
   <div class="preloader" id="preloader" aria-hidden="true">
-    <span class="preloader-count" id="preloaderCount">0</span>
+    <div class="preloader-card">
+      <div class="preloader-top">
+        <span class="preloader-label">Loading site</span>
+        <span class="preloader-count" id="preloaderCount">0</span>
+      </div>
+      <div class="preloader-bars" id="preloaderBars"></div>
+      <div class="preloader-track">
+        <div class="preloader-track-fill" id="preloaderTrackFill"></div>
+        <div class="preloader-track-dot" id="preloaderTrackDot"></div>
+      </div>
+    </div>
   </div>
 
   <!-- Scroll progress -->
@@ -238,26 +248,26 @@
               <div class="browser-mock">
                 <div class="browser-bar">
                   <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
-                  <span class="browser-url">projectone.com</span>
+                  <span class="browser-url">pansuan.vercel.app</span>
                 </div>
-                <div class="browser-body">
-                  <svg viewBox="0 0 24 24" class="placeholder-icon" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v10h14V7H5Zm2 8 3.5-4.5 2.5 3 3-4L18 15H7Z"/></svg>
-                  <span class="placeholder-label">Project Screenshot</span>
+                <div class="browser-body has-image">
+                  <img src="assets/project-pansuan.png" alt="Pansuan app screenshot" loading="lazy">
                 </div>
               </div>
             </div>
             <div class="project-info">
               <span class="project-index">Project 01</span>
-              <h3>Project Name One</h3>
-              <p>A short one- or two-sentence description of what this project does, the problem it solves, and your role in building it.</p>
+              <h3>Pansuan · ปันส่วน</h3>
+              <p>A portfolio allocation planner that visualizes investments as a living Sankey diagram — split capital into unlimited nested asset layers, drag nodes to rebalance, and watch values flow in real time at 60fps.</p>
               <div class="tag-list">
-                <span class="tag">React</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">PostgreSQL</span>
+                <span class="tag"><img class="tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" loading="lazy">React</span>
+                <span class="tag"><img class="tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" loading="lazy">TypeScript</span>
+                <span class="tag"><img class="tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" alt="" loading="lazy">Vite</span>
+                <span class="tag"><img class="tag-logo tag-logo-invert" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="" loading="lazy">Vercel</span>
               </div>
               <div class="project-links">
-                <a href="#">View Live ↗</a>
-                <a href="#">Source ↗</a>
+                <a href="https://pansuan.vercel.app" target="_blank" rel="noopener">View Live ↗</a>
+                <a href="https://github.com/ICEPAJINGKO/pansuan" target="_blank" rel="noopener">Source ↗</a>
               </div>
             </div>
           </article>
