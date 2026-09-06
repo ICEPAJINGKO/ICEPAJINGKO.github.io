@@ -1,6 +1,15 @@
 (() => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Always start at the top on refresh / reload / fresh visit */
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+    window.addEventListener('load', () => window.scrollTo(0, 0));
+  }
+
   /* Preloader */
   const preloader = document.getElementById('preloader');
   const preloaderCount = document.getElementById('preloaderCount');
