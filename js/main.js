@@ -5,10 +5,17 @@
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
-  if (!window.location.hash) {
-    window.scrollTo(0, 0);
-    window.addEventListener('load', () => window.scrollTo(0, 0));
-  }
+  const resetScroll = () => {
+    const hash = window.location.hash;
+    const target = hash && hash.length > 1 ? document.getElementById(hash.slice(1)) : null;
+    if (target) {
+      target.scrollIntoView({ behavior: 'instant', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  };
+  resetScroll();
+  window.addEventListener('load', resetScroll);
 
   /* Preloader */
   const preloader = document.getElementById('preloader');
